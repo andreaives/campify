@@ -1,0 +1,4 @@
+DROP DATABASE IF EXISTS campify_db;
+
+CREATE DATABASE campify_db;
+
