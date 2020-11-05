@@ -1,5 +1,5 @@
 
-var db = require("../models");
+var db = require("../../models");
 
 module.exports = function(app) {
   app.get("/api/review", function(req, res) {
@@ -21,7 +21,7 @@ module.exports = function(app) {
     });
   });
 
-  app.review("/api/review", function(req, res) {
+  app.post("/api/review", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });

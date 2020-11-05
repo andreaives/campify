@@ -1,5 +1,5 @@
 // Requiring our models
-var db = require("../models");
+var db = require("../../models");
 
 // Routes
 // =============================================================
@@ -34,7 +34,7 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new review
-  app.review("/api/review", function(req, res) {
+  app.post("/api/review", function(req, res) {
     db.Review.create(req.body).then(function(dbReview) {
       res.json(dbReview);
     });
