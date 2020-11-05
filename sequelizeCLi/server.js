@@ -21,8 +21,8 @@ app.use(express.static("public"));
 
 require("./public/routes/api-routes.js")(app);
 // require("./public/routes/html-routes.js")(app);
-// require("./public/routes/review-routes.js")(app);
-// require("./public/routes/user-routes.js")(app);
+require("./public/routes/review-api-routes.js")(app);
+require("./public/routes/user-api-routes.js")(app);
 
 
 
