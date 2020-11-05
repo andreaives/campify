@@ -1,20 +1,16 @@
-$(document).ready(function() {
+$(function() {
 
   var reviewContainer = $(".review-container");
-  var postPrivacySelect = $("#postprivacy");
+
   // Click events for the edit and delete buttons
-  $(document).on("click", "button.delete", handleReviewDelete);
-  $(document).on("click", "button.edit", handleReviewEdit);
-  postPrivacySelect.on("change", handleReviewChange);
+  $("button.delete").on("click", handleReviewDelete);
+  $("button.edit").on("click", handleReviewEdit);
+ 
   var reviews;
 
   // This function grabs posts from the database and updates the view
-  function getReviews(privacy) {
-    var privacyString = privacy || "";
-    if (privacyString) {
-      privacyString = "/privacy/" + privacyString;
-    }
-    $.get("/api/reviews" + privacyString, function(data) {
+  function getReviews() {
+    $.get("/api/reviews", function(data) {
       console.log("Reviews", data);
       reviews = data;
       if (!reviews || !reviews.length) {
@@ -33,7 +29,7 @@ $(document).ready(function() {
       url: "/api/reviews/" + id
     })
       .then(function() {
-        getReviews(postPrivacySelect.val());
+        getReviews();
       });
   }
 
@@ -99,7 +95,7 @@ $(document).ready(function() {
       .parent()
       .parent()
       .data("review");
-    deletePost(currentRost.id);
+    deleteReview(currentReview.id);
   }
 
   // This function figures out which post we want to edit and takes it to the
@@ -119,12 +115,6 @@ $(document).ready(function() {
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
     messageH2.html("No reviews yet.");
     reviewContainer.append(messageH2);
-  }
-
-  // This function handles reloading new reviews when the Privacy changes
-  function handleReviewChange() {
-    var newReviewPrivacy = $(this).val();
-    getReviews(newReviewPrivacy);
   }
 
 });

@@ -13,9 +13,7 @@
             <div class="form-group required">
               <div class="col-sm-12">
                 <label class="control-label">
-                  <!-- {{ entry_rating }} -->
                 </label>
-                <!-- {{ entry_bad }} -->
                 <div class="star-rating">
                   <input id="star-5" type="radio" name="rating" value="5" />
                   <label class="star" for="star-5" title="5 stars">★</label>
@@ -33,7 +31,6 @@
                   <label class="star" for="star-1" title="1 star">★</label>
                 </div>
                 
-                <!-- {{ entry_good }} -->
               </div>
             </div>	
             <label for="title">Title:</label>
@@ -42,7 +39,7 @@
           <label for="body">Write Review:</label>
           <textarea class="form-control" rows="10" id="body"></textarea>
           <div class="form-group">
-            <label class="custom-radio" id="postprivacy" for="privacy"></label><br>
+            <label class="custom-radio" name="postprivacy" id="postprivacy" for="privacy"></label><br>
               <input type="radio" name="anonymous" value="0">Anonymous<br>
               <input type="radio" name="otherusers" value="0">Only Visible to Other Users<br>
               <input type="radio" name="public" value="0">Public
