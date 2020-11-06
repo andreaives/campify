@@ -1,7 +1,8 @@
 // =============================================================
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var passport = require("./config/passport")
+var session = require("express-session");
 
 // Sets up the Express App
 // =============================================================
@@ -16,7 +17,7 @@ const handlebarsConfig = {
   runtimeOptions: {
     allowProtoPropertiesByDefault: true,
     allowProtoMethodsByDefault: true
-  } 
+  },
 }
 app.engine("handlebars", exphbs(handlebarsConfig));
 app.set("view engine", "handlebars");
@@ -28,6 +29,11 @@ app.use(express.json());
 // Static directory
 app.use(express.static("public"));
 
+
+//Set up sessions to keep track of logins and logouts
+app.use(session({secret: "campify secret", resave: true, saveUninitialized: true }))
+app.use(passport.initialize())
+app.use(passport.session())
 // Routes
 // =============================================================
 

@@ -1,5 +1,6 @@
 
 var db = require("../../models");
+var passport = require("../../config/passport")
 
 module.exports = function(app) {
   app.get("/api/user", function(req, res) {
@@ -43,13 +44,23 @@ module.exports = function(app) {
       username: req.body.username,
       email: req.body.email,
       password: req.body.password
-    },{
-      where: {
-        id: req.body.id
-      }
-    }
-    ).then(function(dbUser){
-      res.json(dbUser)
     })
+      .then(function(){
+        res.redirect(307, "/api/login");
+      })
+      .catch(function() {
+        res.status(401).json(err);
+      })
+  })
+
+  app.get("/api/user_data", function(req,res) {
+    if (!req.user) {
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      })
+    }
   })
 };
