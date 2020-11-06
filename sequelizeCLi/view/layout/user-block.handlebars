@@ -1,37 +1,20 @@
-<div class="container">
-    <div class="row">
-      <div class="row">
-        <div class="col-sm-2 mt-4">
-          <a class="btn btn-light" href="/blog">Write a Review</a>
-        </div>
-      </div>
-      <div class="col-md-5 offset-md-3">
-        <form id="cms">
-          <div class="form-group">
-            {{!-- link from item the user wants to write a review about, user must add item to their account in order to write a review, then we add to the table where all of the specific user's data is --}}
-            <label for="title">Title:</label>
-            <div class="container">
-         <div class="container">
-  <div class="row">
-    <div class="row">
-      <div class="col-sm-2 mt-4">
-        <a class="btn btn-light" href="/blog">Write a Review</a>
-      </div>
-    </div>
-    <div class="col-md-5 offset-md-3">
-      <form id="cms">
-        <div class="form-group">
-          {{!-- link from item the user wants to write a review about, user must add item to their account in order to write a review, then we add to the table where all of the specific user's data is --}}
-          <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title">
-            <br />
-            <label for="body">Body:</label>
-            <textarea class="form-control" rows="10" id="body"></textarea>
-            </div>
-            <br />
-            <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+
+<h1>{{this.username}} Campify Profile</h1>
+
+<h2>General Info</h2>
+<p>Username: {{this.username}}</p>
+<p>Email: {{this.email}}</p>
+<p>Password: {{this.password}}</p>
+
+<h2>Your Saved Campifies</h2>
+<ul>{{#each campifies}}
+  {{/each}}
+
+<h2>Your Reviews</h2>
+<ul>
+  {{#each review}}
+  {{/each}}
+</ul>
+
+
+         

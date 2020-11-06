@@ -8,7 +8,7 @@ $(function() {
       body: $("#body").val().trim(),
       privacy: $("[name=postprivacy]:checked").val().trim()
     };
-    $.ajax("api/reviews", {
+    $.ajax("/api/reviews", {
       type: "POST",
       data: newReview
     }).then(function(){
@@ -16,10 +16,11 @@ $(function() {
       location.reload()
     })
   });
+
   
   $(".delete-review").on("click", function(event){
     var id = $(this).data("id");
-    $.ajax("api/reviews/" + id, {
+    $.ajax("/api/reviews/" + id, {
       type: "DELETE"
     }).then(function(){
       console.log("Review" + id + "deleted.")

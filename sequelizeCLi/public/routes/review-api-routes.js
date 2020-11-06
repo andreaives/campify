@@ -6,7 +6,7 @@ var db = require("../../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/api/review", function(req, res) {
+  app.get("/api/reviews", function(req, res) {
     var query = {};
     if (req.query.user_id) {
       query.UserId = req.query.user_id;
@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single Review
-  app.get("/api/review/:id", function(req, res) {
+  app.get("/api/reviews/:id", function(req, res) {
    
     db.Review.findOne({
       where: {
@@ -34,14 +34,15 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new review
-  app.post("/api/review", function(req, res) {
+  app.post("/api/reviews", function(req, res) {
+    // req.body is the whole review
     db.Review.create(req.body).then(function(dbReview) {
       res.json(dbReview);
     });
   });
 
   // DELETE route for deleting review
-  app.delete("/api/review/:id", function(req, res) {
+  app.delete("/api/reviews/:id", function(req, res) {
     db.Review.destroy({
       where: {
         id: req.params.id
@@ -52,7 +53,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating review
-  app.put("/api/review", function(req, res) {
+  app.put("/api/reviews", function(req, res) {
     db.Review.update(
       req.body,
       {
