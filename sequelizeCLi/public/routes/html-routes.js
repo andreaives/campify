@@ -1,4 +1,5 @@
 var path = require("path");
+const db = require("../../models");
 
 // Routes
 // =============================================================
@@ -8,16 +9,22 @@ module.exports = function(app) {
 
   // index route loads view.html
   app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/routes/.html"));
+    res.render("index")
+    // res.sendFile(path.join(__dirname, "../public/view/layout/user-block.handlebars"));
   });
 
   app.get("/user", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view/layout/user-block.handlebars"));
+    db.User.findAll().then(function(res2){
+      // pass object to handlebars so that this array can be passed through (giving it the name "user")
+      res.render("index", { user: res2})
+    })
+    // res.sendFile(path.join(__dirname, "../public/view/layout/user-block.handlebars"));
   });
 
-  // blog route loads blog.html
+  // follow cats app with rendering the right path
+  // then sequelize
   app.get("/reviews", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/view/layout/review-block.handlebars"));
+    res.render("index")
   });
 
 };

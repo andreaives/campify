@@ -8,13 +8,13 @@ module.exports = function(app) {
   // GET route for getting all of the posts
   app.get("/api/reviews", function(req, res) {
     var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
+    if (req.query.review_id) {
+      query.ReviewId = req.query.review_id;
     }
   
     db.Review.findAll({
       where: query,
-      include: [db.User]
+      include: [db.Review]
     }).then(function(dbReview) {
       res.json(dbReview);
     });
