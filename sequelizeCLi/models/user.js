@@ -22,13 +22,11 @@ module.exports = function(sequelize, DataTypes) {
   User.prototype.validPassword = function(password) {
     return bcrypt.compaseSync(password, this.password)
   }
-<<<<<<< HEAD
 
   User.addHook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
   })
-=======
-});
+};
 
 User.associate = function(models) {
   // We're saying that a Post should belong to an Author
@@ -39,7 +37,5 @@ User.associate = function(models) {
       }
     });
   };
->>>>>>> main
   return User;
-}
 
