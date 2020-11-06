@@ -7,6 +7,7 @@ module.exports = function(app) {
       include: [db.Review]
     }).then(function(dbUser) {
       res.json(dbUser);
+      console.log(dbUser)
     });
   });
 
@@ -51,5 +52,4 @@ module.exports = function(app) {
       res.json(dbUser)
     })
   })
-
 };
