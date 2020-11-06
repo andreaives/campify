@@ -3,12 +3,54 @@ var db = require("../../models");
 var passport = require("../../config/passport")
 
 module.exports = function(app) {
+<<<<<<< HEAD
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user)
   })
 
   app.post("/api/signup", function(req,res) {
     db.User.create({
+=======
+  app.get("/api/user", function(req, res) {
+    db.User.findAll({
+      include: [db.Review]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+      console.log(dbUser)
+    });
+  });
+
+  app.get("/api/user/:id", function(req, res) {
+    db.User.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.Review]
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.post("/api/user", function(req, res) {
+    db.User.create(req.body).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.delete("/api/user/:id", function(req, res) {
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+  app.post("/api/user", function(req, res){
+    db.User.update({
+      username: req.body.username,
+>>>>>>> main
       email: req.body.email,
       password: req.body.password
     })
@@ -30,6 +72,7 @@ module.exports = function(app) {
       })
     }
   })
+<<<<<<< HEAD
 }
 
 // module.exports = function(app) {
@@ -84,3 +127,6 @@ module.exports = function(app) {
 //   })
 
 // };
+=======
+};
+>>>>>>> main

@@ -14,7 +14,7 @@ module.exports = function(app) {
   
     db.Review.findAll({
       where: query,
-      include: [db.Review]
+      include: [db.User]
     }).then(function(dbReview) {
       res.json(dbReview);
     });
