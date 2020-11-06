@@ -1,6 +1,7 @@
 var path = require("path");
 const db = require("../../models");
 
+var isAuthenticated = require("../../config/middleware/isAuthenticated")
 // Routes
 // =============================================================
 module.exports = function(app) {
@@ -27,4 +28,9 @@ module.exports = function(app) {
     res.render("index")
   });
 
-};
+  app.get("/login", function(req,res) {
+    if (req.user) {
+      res.redirect("/")
+    }
+  })
+}

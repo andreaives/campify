@@ -1,10 +1,7 @@
 $(document).ready(function() {
-  // const searchVal = ($("#userSearch").val());
   $("#searchButton").on("click", function(event) {
     event.preventDefault();
     console.log(event)
-    console.log(event)
-    event.preventDefault();
     userSearch = event.target.parentElement.children[1].value;
     console.log(userSearch)
     const searchParam = $("#searchCriteria option:selected").text()
