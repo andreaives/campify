@@ -1,21 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
   var Review = sequelize.define("Review", {
     star: {
-      type: DataTypes.INT,
-      allowNull: false
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 3
     },
     title: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1, 50]
       }
     },
     body: {
       type: DataTypes.TEXT,
       allowNull: false,
       validate: {
-        len: [1]
+        len: [1, 255]
       }
     },
     privacy: {
