@@ -1,54 +1,79 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Write a review
+</button>
 
-<div class="container">
-  <div class="row">
-    <!-- <div class="row">
-      <div class="col-sm-2 mt-4">
-        <a class="btn btn-light" href="/blog">Write a Review</a>
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-    </div> -->
-    <div class="col-md-5 offset-md-3">
-      <form id="cms">
-        <div class="form-group">
-          <!-- {{!-- link from item the user wants to write a review about, user must add item to their account in order to write a review, then we add to the table where all of the specific user's data is --}} -->
+      <div class="modal-body">
+
+        <body>
           <div class="container">
-            <div class="form-group required">
-              <div class="col-sm-12">
-                <label class="control-label">
-                </label>
-                <div class="star-rating">
-                  <input id="star-5" type="radio" name="rating" value="5" />
-                  <label class="star" for="star-5" title="5 stars">★</label>
-                  
-                  <input id="star-4" type="radio" name="rating" value="4" />
-                  <label class="star" for="star-4" title="4 stars">★</label>
-                  
-                  <input id="star-3" type="radio" name="rating" value="3" />
-                  <label class="star" for="star-3" title="3 stars">★</label>
-                  
-                  <input id="star-2" type="radio" name="rating" value="2" />
-                  <label class="star" for="star-2" title="2 stars">★</label>
-                  
-                  <input id="star-1" type="radio" name="rating" value="1" />
-                  <label class="star" for="star-1" title="1 star">★</label>
-                </div>
-                
+            <div class="row">
+              <!-- <div class="row">
+            <div class="col-sm-2 mt-4">
+              <a class="btn btn-light" href="/blog">Write a Review</a>
+            </div>
+          </div> -->
+              <div class="col-md-5 offset-md-3">
+                <form id="cms">
+                  <div class="form-group">
+                    <!-- {{!-- link from item the user wants to write a review about, user must add item to their account in order to write a review, then we add to the table where all of the specific user's data is --}} -->
+                    <div class="container">
+                      <div class="form-group required">
+                        <div class="col-sm-12">
+                          <label class="control-label">
+                          </label>
+                          <div class="star-rating">
+                            <input id="star-5" type="radio" name="rating" value="5" />
+                            <label class="star" for="star-5" title="5 stars">★</label>
+
+                            <input id="star-4" type="radio" name="rating" value="4" />
+                            <label class="star" for="star-4" title="4 stars">★</label>
+
+                            <input id="star-3" type="radio" name="rating" value="3" />
+                            <label class="star" for="star-3" title="3 stars">★</label>
+
+                            <input id="star-2" type="radio" name="rating" value="2" />
+                            <label class="star" for="star-2" title="2 stars">★</label>
+
+                            <input id="star-1" type="radio" name="rating" value="1" />
+                            <label class="star" for="star-1" title="1 star">★</label>
+                          </div>
+
+                        </div>
+                      </div>
+                      <label for="title">Title:</label>
+                      <input type="text" class="form-control" id="title">
+                      <br>
+                      <label for="body">Write Review:</label>
+                      <textarea class="form-control" rows="10" id="body"></textarea>
+                      <div class="form-group">
+                        <label class="custom-radio" name="postprivacy" id="postprivacy" for="privacy"></label><br>
+                        <input type="radio" name="radio" value="anonymous">Anonymous<br>
+                        <input type="radio" name="radio" value="public">Public<input>
+                      </div>
+                      <br />
+                      <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+                    </div>
+                </form>
               </div>
-            </div>	
-            <label for="title">Title:</label>
-          <input type="text" class="form-control" id="title">
-          <br>
-          <label for="body">Write Review:</label>
-          <textarea class="form-control" rows="10" id="body"></textarea>
-          <div class="form-group">
-            <label class="custom-radio" name="postprivacy" id="postprivacy" for="privacy"></label><br>
-              <input type="radio" name="anonymous" value="anonymous">Anonymous<br>
-              <input type="radio" name="otherusers" value="otherusers">Only Visible to Other Users<br>
-              <input type="radio" name="public" value="public">Public
+            </div>
           </div>
-          <br />
-          <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
-        </div>
-      </form>
+        </body>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
   </div>
 </div>
