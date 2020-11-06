@@ -19,5 +19,16 @@
     "database": "bzziv47fb5i16ykw",
     "host": "gp96xszpzlqupw4k.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
+  },
+    "development2": {
+      "username": "root",
+      "password": "abcd1234",
+      "database": "campify",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production2": {
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
     }
 }
