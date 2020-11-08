@@ -3,7 +3,7 @@ var db = require("../../models");
 var passport = require("../../config/passport")
 
 module.exports = function(app) {
-  app.get("/api/user", function(req, res) {
+  app.get("/api/profile", function(req, res) {
     db.User.findAll({
       include: [db.Review]
     }).then(function(dbUser) {
@@ -12,7 +12,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/user/:id", function(req, res) {
+  app.get("/api/profile/:id", function(req, res) {
     db.User.findOne({
       where: {
         id: req.params.id
@@ -23,13 +23,13 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/user", function(req, res) {
+  app.post("/api/profile", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
-  app.delete("/api/user/:id", function(req, res) {
+  app.delete("/api/profile/:id", function(req, res) {
     db.User.destroy({
       where: {
         id: req.params.id
@@ -39,7 +39,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/user", function(req, res){
+  app.post("/api/profile", function(req, res){
     db.User.update({
       username: req.body.username,
       email: req.body.email,
@@ -53,7 +53,7 @@ module.exports = function(app) {
       })
   })
 
-  app.get("/api/user_data", function(req,res) {
+  app.get("/api/profile_data", function(req,res) {
     if (!req.user) {
       res.json({});
     } else {

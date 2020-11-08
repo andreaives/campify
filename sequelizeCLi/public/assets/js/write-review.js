@@ -15,7 +15,14 @@ $(function() {
       console.log("New review submitted.")
       location.reload()
     })
+    submitReview(newReview)
   });
+
+  function submitReview(Review){
+    $.review("/api/reviews/", Review, function(){
+      window.location.href = "/user";
+    })
+  }
 
   
   $(".delete-review").on("click", function(event){

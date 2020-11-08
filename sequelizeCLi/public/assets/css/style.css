@@ -1,3 +1,8 @@
+.log-out {
+  text-align: center;
+  margin-top: 13px
+}
+
 .star{
   margin: 2px
 }
@@ -28,11 +33,11 @@
     color: #f2b600;
 }
 
-/* Navbar on main page */
+
 .navbar-custom {
     background-color: #866C5B;
 }
-/* Calendar */
+
 body {
     background: #f7f6f3;
     font-family: sans-serif;
