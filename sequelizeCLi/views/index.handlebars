@@ -14,13 +14,13 @@
       </li>
     </ul>
  </nav>
-    <form class="form-inline my-2 my-lg-0">
-      <select id="searchCriteria">
-        <option value="campsites">Campsites</option>
-        <option value="facilities">Facilities</option>
-        <option value="recAreas">Rec Areas</option>
+    <form class="form-inline my-2 my-lg-0 search">
+      <select id="searchCriteria" class="form-control mr-sm-2">
+        <option value="Campsites">Campsites</option>
+        <option value="Facilities">Facilities</option>
+        <option value="RecAreas">Rec Areas</option>
       </select>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Search" aria-label="Search">
       <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
 
@@ -29,5 +29,11 @@
     {{>calendar}}
     {{>searchResult}}
     {{>reviews-block}}
+<<<<<<< HEAD
     
 </body>
+=======
+    {{>searchResult}}
+ 
+</body>
+>>>>>>> af1c45a7e3f4876020bf6feceb3ee65a336b2bb1
