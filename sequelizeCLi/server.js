@@ -7,27 +7,38 @@ var session = require("express-session");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
 
-const handlebarsConfig = {
-  defaultLayout: "main", 
-  runtimeOptions: {
-    allowProtoPropertiesByDefault: true,
-    allowProtoMethodsByDefault: true
-  },
-}
-app.engine("handlebars", exphbs(handlebarsConfig));
-app.set("view engine", "handlebars");
+// const handlebarsConfig = {
+//   defaultLayout: "main", 
+//   runtimeOptions: {
+//     allowProtoPropertiesByDefault: true,
+//     allowProtoMethodsByDefault: true
+//   },
+// }
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+
+//Handlebar setting
+app.set("view engine", "handlebars");
+app.engine("handlebars", exphbs({
+  extname : 'handlebars',
+  defaultLayout: 'main',
+  layoutsDir: __dirname + "/views/layouts",
+  partialsDir: __dirname + '/views/partials'
+}));
+
+var PORT = process.env.PORT || 8080;
+// app.listen(PORT)
+console.log(`http://localhost:${PORT}`)
+
 
 
 //Set up sessions to keep track of logins and logouts
