@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function() { // data from RIDB 
   $("#searchButton").on("click", function(event) {
     event.preventDefault();
     console.log(event)
