@@ -23,6 +23,9 @@ module.exports = function(app) {
     res.render("index")
   })
 
+  app.get("/main/search", function(req,res){
+    res.render("index")
+  })
  
     // res.sendFile(path.join(__dirname, "../public/view/layout/user-block.handlebars"));
 
