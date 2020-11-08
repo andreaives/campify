@@ -14,19 +14,29 @@
       </li>
     </ul>
  </nav>
-    <form class="form-inline my-2 my-lg-0">
-      <select id="searchCriteria">
-        <option value="campsites">Campsites</option>
-        <option value="facilities">Facilities</option>
-        <option value="recAreas">Rec Areas</option>
-      </select>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+<h1>{{this.user.text}} Campify Profile</h1>
 
+<div>
+  {{#each user}}
+  {{this.user}}: {{value}}
+ 
+<div class="user">å
+<h2>General Info</h2>
+<p>Username: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<p>Password: {{user.password}}</p>
 
-<body>
-    {{>searchResult}}
-    {{>reviews-block}}
-    {{>searchResult}}
-</body>
+<h2>Your Saved Campifies</h2>
+<ul>{{#each campifies}}
+  {{/each}}
+
+<h2>Your Reviews</h2>
+<ul>
+  {{#each review}}
+  {{/each}}
+</ul>
+{{else}}
+<p>no users</p>
+ {{/each}}
+  </div>
+</div>

@@ -1,7 +1,7 @@
 var bcrypt = require("bcryptjs")
 
 //this is our User model
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
     // username: {
     //   type: DataTypes.STRING,
@@ -11,6 +11,13 @@ module.exports = function(sequelize, DataTypes) {
     //   }
     // },
     //email cannot be null, and is checked for being a real email
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1, 20]
+      }
+    },
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,23 +33,23 @@ module.exports = function(sequelize, DataTypes) {
     }
   })
   //this checks if the unhashed password can be checked against the stored password
-  User.prototype.validPassword = function(password) {
+  User.prototype.validPassword = function (password) {
     return bcrypt.compaseSync(password, this.password)
   }
 
-  User.addHook("beforeCreate", function(user) {
+  User.addHook("beforeCreate", function (user) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null)
   })
 
 
-  User.associate = function(models) {
-  // We're saying that a Post should belong to an Author
-  // A Post can't be created without an Author due to the foreign key constraint
+  User.associate = function (models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
     User.hasMany(models.Review, {
-        foreignKey: {
-         onDelete: "cascade"
-        }
-      });
-    };
+      foreignKey: {
+        onDelete: "cascade"
+      }
+    });
+  };
   return User;
 };
