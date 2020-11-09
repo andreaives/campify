@@ -18,10 +18,20 @@ module.exports = function(app) {
     // res.sendFile(path.join(__dirname, "../public/view/layout/user-block.handlebars"));
   });
 
-  app.get("/profile", function(req, res) {
+  app.get("/profile/:id", function(req, res) {
+    db.User.findAll({
+    }).then(function(dbUser) {
+      let data = dbUser[0].dataValues
+      let arr = []
+      arr.push(data)
+      console.log(data)
+      res.render("profile",{ user: arr});
+      console.log(dbUser)
+    });
       // pass object to handlebars so that this array can be passed through (giving it the name "user")
-      res.render("profile")
     })
+
+    
   app.get("/main", function(req,res){
     res.render("index")
   })
