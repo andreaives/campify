@@ -16,12 +16,14 @@
     </ul>
   </div>
 </nav>
+
 </header>
-<h1>{{user.text}} Campify Profile</h1>
+
 
 <div>
   {{#each user}}
-  {{user}}: {{value}} 
+  <h1>{{username}} Campify Profile</h1>
+  
 
   <div class="user">
     <h2>General Info</h2>
@@ -29,17 +31,8 @@
     <p>Email: {{email}}</p>
     <p>Password: {{password}}</p>
 
-    {{!-- <h2>Your Saved Campifies</h2>
-    <ul>{{#each campifies}} --}}
-      {{/each}}
-
-      {{!-- <h2>Your Reviews</h2>
-      <ul>
-        {{#each review}}
-        {{/each}}
-      </ul> --}}
-      {{!-- {{else}}
-      <p>no users</p> --}}
-      {{!-- {{/each}} --}}
+{{/each}}
+ 
   </div>
+</div>
 </div>

@@ -16,19 +16,19 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/profile/:id", function(req, res) {
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Review]
-    }).then(function(dbUser) {
-      let data = dbUser[0].User.dataValues
-      let arr = []
-      arr.push(data)
-      res.render("profile", { user: data});
-    });
-  });
+  // app.get("/api/profile/:id", function(req, res) {
+  //   db.User.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.Review]
+  //   }).then(function(dbUser) {
+  //     let data = dbUser[0].User.dataValues
+  //     let arr = []
+  //     arr.push(data)
+  //     res.render("profile", { user: data});
+  //   });
+  // });
 
   app.post("/api/profile", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
