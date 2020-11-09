@@ -169,6 +169,7 @@ $(function() { // data from RIDB
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
+          // https://cors-anywhere.herokuapp.com/
           const userLat = pos.lat
           const userLon = pos.lng
           let campSettings = {
@@ -176,18 +177,21 @@ $(function() { // data from RIDB
             crossDomain: true,
             url: 'https://cors-anywhere.herokuapp.com/https://ridb.recreation.gov/api/v1/recareas?limit=50&latitude='+userLat+'&longitude='+userLon+'&radius=25&apikey=635989e4-a266-4eac-8549-5bdd1e8435a1', //heroku app is a no-cors fix for the riDB access
             method: "GET",
+            contentType: "application/json"
           };
             $.ajax(campSettings).done(function (response){
               var resultArr = response.RECDATA
+              console.log(resultArr)
               resultArr.forEach(function(data) {
                 var searchItem = {
                   name: data.RecAreaName,
-                  description: data.RecAreaDescription,
+                  // description: data.RecAreaDescription,
                   lat: data.RecAreaLatitude,
                   lon: data.RecAreaLongitude,
                   phone: data.RecAreaPhone,
                   email: data.RecAreaEmail,
-                  reservable: data.reservable
+                  reservable: data.reservable,
+                  recAreaId: data.RecAreaID
                 }
                 searchArr.push(searchItem)
               })
@@ -198,10 +202,10 @@ $(function() { // data from RIDB
                 nameResult.addClass("nameResult");
                 nameResult.text("Rec Area Name: " + searchArr[i].name);
                 resultDiv.append(nameResult);
-                var descriptionResult = $("<div>");
-                descriptionResult.addClass("descriptionResult");
-                descriptionResult.text("Description: " + searchArr[i].description);
-                resultDiv.append(descriptionResult);
+                // var descriptionResult = $("<div>");
+                // descriptionResult.addClass("descriptionResult");
+                // descriptionResult.text("Description: " + searchArr[i].description);
+                // resultDiv.append(descriptionResult);
                 var coordResult = $("<div>");
                 coordResult.addClass("coordResult");
                 coordResult.text("Coordinates: " + searchArr[i].lat + " X " + searchArr[i].lon);
