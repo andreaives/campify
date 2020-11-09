@@ -1,4 +1,4 @@
-{{!-- Logo --}}
+<img id="logo" src="/assets/img/loginLogo.png">
 <form class="login">
       <label for="username"><b>Username</b></label>
       <input id="username-input"type="text" placeholder="Enter Username" name="username" required>
@@ -9,11 +9,11 @@
 
       <label for="password"><b>Password</b></label>
       <input id="password-input" type="password" placeholder="Enter Password" name="password" required>
-      <label>
+      
+      <label id="rememberBox">
          <input type="checkbox" checked="checked" name="remember">
          Remember Me
       </label>
-      <button type="submit">Login</button>
-      <button type="button">New User</button>
-
+      <button class="userBtn btn1" type="submit">Login</button>
+      <button class="userBtn btn2" type="button">New User</button>
 </form>
