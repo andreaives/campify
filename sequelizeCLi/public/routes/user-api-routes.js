@@ -7,7 +7,11 @@ module.exports = function(app) {
     db.User.findAll({
       include: [db.Review]
     }).then(function(dbUser) {
-      res.json(dbUser);
+      let data = dbUser[0].dataValues
+      let arr = []
+      arr.push(data)
+      console.log(data)
+      res.render("profile",{ user: arr});
       console.log(dbUser)
     });
   });
@@ -19,7 +23,10 @@ module.exports = function(app) {
       },
       include: [db.Review]
     }).then(function(dbUser) {
-      res.json(dbUser);
+      let data = dbUser[0].User.dataValues
+      let arr = []
+      arr.push(data)
+      res.render("profile", { user: data});
     });
   });
 
@@ -53,6 +60,7 @@ module.exports = function(app) {
       })
   })
 
+<<<<<<< HEAD
   app.get("/api/profile_data", function(req,res) {
     if (!req.user) {
       res.json({});
@@ -67,4 +75,16 @@ module.exports = function(app) {
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
+=======
+//   app.get("/api/profile_data", function(req,res) {
+//     if (!req.user) {
+//       res.json({});
+//     } else {
+//       res.json({
+//         email: req.user.email,
+//         id: req.user.id
+//       })
+//     }
+//   })
+>>>>>>> main
 };

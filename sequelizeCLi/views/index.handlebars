@@ -1,4 +1,4 @@
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -13,6 +13,7 @@
         <a class="nav-link log-out" href="/">Log Out</a>
       </li>
     </ul>
+<<<<<<< HEAD
  </nav>
 <div>
     <form class="form-inline my-2 my-lg-0 search">
@@ -28,11 +29,22 @@
 
     </div>
 </div>
+=======
+</nav>
+<form class="form-inline my-2 my-lg-0 search">
+  <select id="searchCriteria" class="form-control mr-sm-2">
+    <option value="Campsites">Campsites</option>
+    <option value="Facilities">Facilities</option>
+    <option value="RecAreas">Rec Areas</option>
+  </select>
+  <input class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Search" aria-label="Search">
+  <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+>>>>>>> main
 
 
 <body>
-    {{>searchResult}}
-    {{>reviews-block}}
-    {{>searchResult}}
- 
+  {{>calendar}}
+  {{>searchResult}}
+  {{>reviews-block}}
 </body>
