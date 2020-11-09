@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
   })
   //this checks if the unhashed password can be checked against the stored password
   User.prototype.validPassword = function (password) {
-    return bcrypt.compaseSync(password, this.password)
+    return bcrypt.compareSync(password, this.password)
   }
 
   User.addHook("beforeCreate", function (user) {

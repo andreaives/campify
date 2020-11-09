@@ -40,7 +40,23 @@ $(function() { // data from RIDB
                     }
                     searchArr.push(searchItem)
                   })
-                  console.log(searchArr)
+                  for(i=0;i<searchArr.length;i++){
+                  var resultDiv = $("<div>");
+                  resultDiv.addClass("searchResult");
+                  var facilityResult = $("<div>");
+                  facilityResult.addClass("facilityResult");
+                  facilityResult.text("Facility ID: " + searchArr[i].facilityID);
+                  resultDiv.append(facilityResult);
+                  var campsiteResult = $("<div>");
+                  campsiteResult.addClass("campsiteResult");
+                  campsiteResult.text("Campsite ID: " + searchArr[i].campsiteID);
+                  resultDiv.append(campsiteResult);
+                  var coordResult = $("<div>");
+                  coordResult.addClass("coordResult");
+                  coordResult.text("Coordinates: " + searchArr[i].campsiteLat + "X" + searchArr[i].campsiteLon);
+                  resultDiv.append(coordResult);
+                  $("#searchResults").append(resultDiv);
+                  }
                   })
           })
         }
@@ -59,7 +75,6 @@ $(function() { // data from RIDB
                 url: 'https://cors-anywhere.herokuapp.com/https://ridb.recreation.gov/api/v1/facilities?query='+userSearch+'&limit=50&apikey=635989e4-a266-4eac-8549-5bdd1e8435a1', //heroku app is a no-cors fix for the riDB access
                 method: "GET",
               };
-              console.log(campSettings)
                 $.ajax(campSettings).done(function (response){
                   var resultArr = response.RECDATA
                   resultArr.forEach(function(data) {
@@ -82,7 +97,7 @@ $(function() { // data from RIDB
                     }
                     searchArr.push(searchItem)
                   })
-                  console.log(searchArr)
+
                   })
           })
         }
@@ -103,7 +118,6 @@ $(function() { // data from RIDB
                 url: 'https://cors-anywhere.herokuapp.com/https://ridb.recreation.gov/api/v1/recareas?query='+userSearch+'&limit=50&latitude='+userLat+'&longitude='+userLon+'&radius=25&apikey=635989e4-a266-4eac-8549-5bdd1e8435a1', //heroku app is a no-cors fix for the riDB access
                 method: "GET",
               };
-              console.log(campSettings)
                 $.ajax(campSettings).done(function (response){
                   var resultArr = response.RECDATA
                   resultArr.forEach(function(data) {

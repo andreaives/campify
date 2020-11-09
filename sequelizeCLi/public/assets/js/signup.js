@@ -1,6 +1,6 @@
 $(function() {
   // Getting references to our form and inputs
-  var loginForm = $("form.login");
+  var loginForm = $("form.signup");
   var usernameInput = $("input#username-input")
   var emailInput = $("input#email-input")
   var passwordInput = $("input#password-input");
@@ -11,8 +11,8 @@ $(function() {
     event.preventDefault();
     var userData = {
       username: usernameInput.val().trim(),
-      password: passwordInput.val().trim(),
-      email: emailInput.val().trim()
+      email: emailInput.val().trim(),
+      password: passwordInput.val().trim()
     };
     
 
@@ -25,14 +25,15 @@ $(function() {
     loginUser(userData.username, userData.password, userData.email);
     usernameInput.val("");
     passwordInput.val("");
-    emailInput.val("")
+    emailInput.val("");
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(username, password) {
-    $.post("/api/login", {
+  function loginUser(username, password, email) {
+    $.post("/api/profile", {
       username: username,
-      password: password
+      password: password,
+      email: email
     })
       .then(function() {
         window.location.replace("/profile");
