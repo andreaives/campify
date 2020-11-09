@@ -1,20 +1,21 @@
 {{!-- Logo --}}
 <form class="login">
-<form class="username">
-   <div class="container">
       <label for="username"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="username" required>
+      <input id="username-input"type="text" placeholder="Enter Username" name="username" required>
+
+      <label for="email"><b>Email</b></label>
+      <input class="emailLI"id="email-input"type="text" placeholder="Enter Email" name="email" required>
+
 
       <label for="password"><b>Password</b></label>
       <input id="password-input" type="password" placeholder="Enter Password" name="password" required>
-</form>
       <label>
          <input type="checkbox" checked="checked" name="remember">
          Remember Me
       </label>
-   </div>
-   <div class="container">
       <button type="submit">Login</button>
       <button type="button">New User</button>
-   </div>
+
 </form>
+
+

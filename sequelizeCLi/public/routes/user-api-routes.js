@@ -60,14 +60,19 @@ module.exports = function(app) {
       })
   })
 
-//   app.get("/api/profile_data", function(req,res) {
-//     if (!req.user) {
-//       res.json({});
-//     } else {
-//       res.json({
-//         email: req.user.email,
-//         id: req.user.id
-//       })
-//     }
-//   })
+  app.get("/api/profile_data", function(req,res) {
+    if (!req.user) {
+      res.json({});
+    } else {
+      res.json({
+        email: req.user.email,
+        id: req.user.id
+      })
+    }
+  })
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.json(req.user);
+  });
+
 };
