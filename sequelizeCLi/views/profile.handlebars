@@ -1,10 +1,4 @@
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
-  <title>Profile Page</title>
-  <script src="https://code.jquery.com/jquery.js"></script>
 
-</head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,29 +15,29 @@
       </li>
     </ul>
 </nav>
-<h1>{{this.user.text}} Campify Profile</h1>
+<h1>{{user.text}} Campify Profile</h1>
 
 <div>
   {{#each user}}
-  {{this.user}}: {{value}}
+  {{user}}: {{value}} 
 
   <div class="user">
     <h2>General Info</h2>
-    <p>Username: {{user.username}}</p>
-    <p>Email: {{user.email}}</p>
-    <p>Password: {{user.password}}</p>
+    <p>Username: {{username}}</p>
+    <p>Email: {{email}}</p>
+    <p>Password: {{password}}</p>
 
-    <h2>Your Saved Campifies</h2>
-    <ul>{{#each campifies}}
+    {{!-- <h2>Your Saved Campifies</h2>
+    <ul>{{#each campifies}} --}}
       {{/each}}
 
-      <h2>Your Reviews</h2>
+      {{!-- <h2>Your Reviews</h2>
       <ul>
         {{#each review}}
         {{/each}}
-      </ul>
-      {{else}}
-      <p>no users</p>
-      {{/each}}
+      </ul> --}}
+      {{!-- {{else}}
+      <p>no users</p> --}}
+      {{!-- {{/each}} --}}
   </div>
 </div>
