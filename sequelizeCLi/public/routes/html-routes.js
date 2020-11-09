@@ -25,10 +25,6 @@ module.exports = function(app) {
   app.get("/main", function(req,res){
     res.render("index")
   })
-<<<<<<< HEAD
-=======
-
->>>>>>> main
   app.get("/main/search", function(req,res){
     res.render("index")
   })
