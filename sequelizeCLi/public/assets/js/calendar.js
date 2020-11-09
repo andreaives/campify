@@ -3,15 +3,15 @@ var $html = $(t());
 
 function changeDate() {
   $html.find(".datePicker").datepicker({
-    minDate: minimumDate("2018-08-10"),
-    maxDate: minimumDate("2018-08-15")
+  //  minDate: minimumDate("2018-08-10"),
+  //  maxDate: minimumDate("2018-08-15")
   });
 }
 
 $html.find(".datePicker").datepicker({
   dateFormat: "d MM yy",
-  minDate: minimumDate("2018-06-04"),
-  maxDate: minimumDate("2018-07-20")
+ // minDate: minimumDate("2018-06-04"),
+ // maxDate: minimumDate("2018-07-20")
 });
 $("body").append($html);
 

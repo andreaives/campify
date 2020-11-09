@@ -1,15 +1,63 @@
-<script type="text/x-handlebars-template">
-  <div class="row">
-        <input type="text" class="datePicker">
-    </div>
+<!-- <script type="text/x-handlebars-template">
 
-  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+  
 <script>
   // compile the template
   var template = Handlebars.compile("Handlebars <b>{{doesWhat}}</b>");
   // execute the compiled template and print the output to the console
   console.log(template({ doesWhat: "rocks!" }));
-</script>
+</script> -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js
+"></script>
+
 
 </script>
-<button onclick="changeDate()">click</button>
+
+
+<!-- <script> var t = Handlebars.compile($("#template-row").html()); -->
+<script>
+// var $html = $(t()); 
+
+function changeDate() {
+  $(".datePicker").datepicker({
+  //  minDate: minimumDate("2018-08-10"),
+  //  maxDate: minimumDate("2018-08-15")
+  });
+}
+
+$(".datePicker").datepicker({
+  dateFormat: "d MM yy",
+//  minDate: minimumDate("2018-06-04"),
+//  maxDate: minimumDate("2018-07-20")
+});
+// $("body").append($html);
+
+function minimumDate(minDate) {
+  var date = new Date(minDate);
+  if (date < Date.now()) {
+    return new Date(Date.now());
+  } else {
+    return date;
+  }
+}
+
+function maximumDate(maxDate) {
+  var date = new Date(maxDate);
+  if (date < Date.now()) {
+  } else {
+    return date;
+  }
+}</script>
+
+<script> $( function() {
+    $( ".datePicker" ).datepicker();
+  } );
+</script>
+
+<label>Date:</label>
+<input type="text" class="datePicker" style="width: 100px;">
+</div>
