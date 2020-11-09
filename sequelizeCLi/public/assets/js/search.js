@@ -3,7 +3,7 @@ $(function() { // data from RIDB
   var searchForm = $("form.search")
   searchForm.on("submit", function(event) {
     event.preventDefault();
-    // searchArr = []
+    searchArr = []
     // var searchTerm = $("input#searchInput");
     // var userSearch = searchTerm.val();
     // var searchDropdown = $("select#searchCriteria")
