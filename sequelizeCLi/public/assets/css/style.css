@@ -1,3 +1,7 @@
+.hidden {
+  display: none
+}
+
 .log-out {
   text-align: center;
   margin-top: 13px
