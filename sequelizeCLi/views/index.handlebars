@@ -1,4 +1,4 @@
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,13 +7,15 @@
     <a class="navbar-brand" href="main"><img src="/assets/img/LogoIcon.png" height="50px" width="auto"></a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="profile"><img src="/assets/img/ProfileIcon.png" height="50px" width="auto"></a>
+        <a class="nav-link" href="/profile/:id"><img src="/assets/img/ProfileIcon.png" height="50px" width="auto"></a>
       </li>
       <li class="nav-item">
         <a class="nav-link log-out" href="/">Log Out</a>
       </li>
     </ul>
+
  </nav>
+<div>
     <form class="form-inline my-2 my-lg-0 search">
       <select id="searchCriteria" class="form-control mr-sm-2">
         <option value="Campsites">Campsites</option>
@@ -23,17 +25,13 @@
       <input class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Search" aria-label="Search">
       <button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
+    <div id="searchResults">
 
+    </div>
+</div>
 
 <body>
-    {{>calendar}}
-    {{>searchResult}}
-    {{>reviews-block}}
-<<<<<<< HEAD
-    
+
+  {{>searchResult}}
+  {{>reviews-block}}
 </body>
-=======
-    {{>searchResult}}
- 
-</body>
->>>>>>> af1c45a7e3f4876020bf6feceb3ee65a336b2bb1
