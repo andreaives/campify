@@ -72,6 +72,7 @@ $(function() { // data from RIDB
                 var facilityListn = document.getElementById('facilityBtn' + a)
                 $(facilityListn).on("click", function(event) {
                 event.preventDefault();
+                searchArr = []
                 console.log(event)
                 let recIdTarget = event.target.parentElement.attributes[1].value
                 console.log(recIdTarget)
@@ -95,7 +96,8 @@ $(function() { // data from RIDB
                       phone: data.FacilityPhone,
                       email: data.FacilityEmail,
                       reservable: data.Reservable,
-                      facilityDesc: data.FacilityDescription
+                      facilityDesc: data.FacilityDescription,
+                      facilityType: data.FacilityTypeDescription
                       // permittedequipment: data.PERMITTEDEQUIPMENT[0].EquipmentName,
                       // maxOccup: data.ATTRIBUTES[8].attributeValue,
                       // pets: data.ATTRIBUTES[12].attributeValue,
@@ -104,10 +106,57 @@ $(function() { // data from RIDB
                       // photo3: data.ENTITYMEDIA[2].URL
                     }
                     searchArr.push(searchItem)
-                    console.log(searchArr)
+                  })
+                  for(i=0;i<searchArr.length;i++){
+                  var resultDiv = $("<div>");
+                  resultDiv.addClass("searchResult");
+                  resultDiv.attr("facilityId", searchArr[i].facilityID)
+                  var nameResult = $("<div>");
+                  nameResult.addClass("nameResult");
+                  nameResult.text("Facility Name: " + searchArr[i].name);
+                  resultDiv.append(nameResult);
+                  var phoneResult = $("<div>");
+                  phoneResult.addClass("phoneResult");
+                  phoneResult.text("Phone #: " + searchArr[i].phone);
+                  resultDiv.append(phoneResult);
+                  var coordResult = $("<div>");
+                  coordResult.addClass("coordResult");
+                  coordResult.text("Coordinates: " +"( "+ searchArr[i].facilityLat + " , " + searchArr[i].facilityLon+" )");
+                  resultDiv.append(coordResult);
+                if(searchArr[i].facilityType == "Campground"){
+                  var campgroundBtn = $("<button>")
+                  .addClass("campgroundbtn")
+                  .text("View Campgrounds for this Facility");
+                  campgroundBtn.attr('id', "campgroundBtn" + i);
+                  // campgroundBtn.attr('indx', indx);
+                  resultDiv.append(campgroundBtn)
+                }
+                  $("#searchResults").append(resultDiv);
+                }
+                for(a=0;a<50;a++){
+                  var campgroundListn = document.getElementById('campgroundBtn' + a)
+                  $(campgroundListn).on("click", function(event) {
+                  event.preventDefault();
+                  searchArr = []
+                  console.log(event)
+                  let recIdTarget = event.target.parentElement.attributes[1].value
+                  console.log(recIdTarget)
+                  let campgroundSettings = {
+                    async: true,
+                    crossDomain: true,
+                    url: 'https://cors-anywhere.herokuapp.com/https://ridb.recreation.gov/api/v1/facilities/'+recIdTarget+'/campsites?limit=50&apikey=635989e4-a266-4eac-8549-5bdd1e8435a1', //heroku app is a no-cors fix for the riDB access
+                    method: "GET",
+                    contentType: "application/json"
+                  }
+                  $.ajax(campgroundSettings).done(function(response){
+                    var resultArr = response.RECDATA
+                    console.log(response)
+                    console.log(resultArr)
                   })
                 })
-                // $("#searchResults").empty();
+                }
+                })
+                $("#searchResults").empty();
               })
               }
             })

@@ -167,6 +167,16 @@ input[type=text], input[type=password]{
   border-radius: 31px;
   box-sizing: border-box;
 }
+.scroll{
+  margin:4px, 4px; 
+  padding: px; 
+  background-color:  #dee2e4; 
+  width: 33%; 
+  height: 750px; 
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  text-align:justify; 
+}
 .userBtn{
   border: 2px solid #EFCB68;
   border-radius: 31px;
