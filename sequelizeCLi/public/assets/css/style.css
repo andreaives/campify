@@ -78,7 +78,7 @@ h3 { font-size:21px; }
   display:inline-block;
   padding:4px;
   margin:4px 4px 4px 0;
-  float:right;
+  /* float:right; */
   clear:both;
 }
 .monthYear { margin:0px 0 10px 0; padding:0 0 0 8px;}
@@ -159,11 +159,11 @@ h3 { font-size:21px; }
   margin:0;
   border-radius:0;
 }
-.dates li a.expand.open {
-}
+/* .dates li a.expand.open {
+} */
 .dates li a.expand span {
-  display:inline-block;
-  float:right;
+  display: inline-block;
+  /* float: right; */
   padding:4px 8px;
   transition: transform 1s ease-in-out;
 }
@@ -301,6 +301,18 @@ h3 { font-size:21px; }
 }
 
 /* Calendar Styling */
+.days{
+  list-style: none;
+}
+.dates{
+  list-style: none;
+}
+.today{
+  list-style: none;
+}
+.date{
+  list-style: none;
+}
 body {
   background: #f7f6f3;
   font-family: sans-serif;
