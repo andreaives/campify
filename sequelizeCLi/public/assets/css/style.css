@@ -534,4 +534,9 @@ input[type=text], input[type=password]{
   outline-style: double;
   outline-color: rgb(10, 46, 10);
   outline-width: medium;
+  color: black;
+}
+.jBox-content{
+  color: black;
+  
 }
