@@ -10,7 +10,7 @@ $(function() { // data from RIDB
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          // https://cors-anywhere.herokuapp.com/
+          // https://cors-anywhere.herokuapp.com/ I had to use this to fix the fact that the api wasnt set up for nonCORS communication, forked repo and hosted on heroku under my own account to handle fewer requests
           const userLat = pos.lat
           const userLon = pos.lng
           let recAreaSettings = {
