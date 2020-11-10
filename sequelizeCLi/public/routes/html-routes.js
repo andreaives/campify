@@ -35,10 +35,7 @@ module.exports = function(app) {
   app.get("/main", function(req,res){
     res.render("index")
   })
-  app.get("/main/search", function(req,res){
-    res.render("index")
-  })
-
+  
   app.get("/", isAuthenticated, function(req, res) {
     res.render("index");
   });

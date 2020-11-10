@@ -1,13 +1,14 @@
-<div class="container">
-  <div class="search">
-    {{!-- <select id="searchCriteria">
-      <option value = "campsites">Campsites</option>
-      <option value = "facilities">Facilities</option>
-      <option value = "recAreas">Rec Areas</option>
-    </select> --}}
-    {{!-- <input type="text" class="searchTerm" placeholder="What are you looking for?"> --}}
-    <button type="submit" class="btn btn-outline-success my-2 my-sm-0" id="searchButton">
-      Rec Area Near Me<i class="fa fa-search"></i>
-    </button>
+<div class="searchArea">
+<button id="searchButton" class="btn btn-outline-success my-2 my-sm-0" type="submit">Rec Areas near ME!</button>
+<form class="form-inline my-2 my-lg-0 search">
+      <select id="searchCriteria" class="form-control mr-sm-2">
+        <option value="Campsites">Campsites</option>
+        <option value="Facilities">Facilities</option>
+        <option value="RecAreas">Rec Areas</option>
+      </select>
+      <input class="form-control mr-sm-2" id="searchInput" type="search" placeholder="Search" aria-label="Search">   
+</form>
+  <div class="scroll"id="searchResults">
+
   </div>
 </div>

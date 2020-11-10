@@ -460,6 +460,16 @@ input[type=text], input[type=password]{
   border-radius: 31px;
   box-sizing: border-box;
 }
+.scroll{
+  margin:4px, 4px; 
+  padding: px; 
+  background-color:  #dee2e4; 
+  width: 33%; 
+  height: 750px; 
+  overflow-x: hidden; 
+  overflow-y: auto; 
+  text-align:justify; 
+}
 .userBtn{
   border: 2px solid #EFCB68;
   border-radius: 31px;
@@ -504,4 +514,24 @@ input[type=text], input[type=password]{
   font-weight: bold;
   margin-bottom: 15px;
   display: block;
+}
+.activityBtn{
+  width: 40%
+}
+.facilityBtn{
+  width: 40%
+}
+.pinBtn{
+  height: 54px;
+  align-self: baseline;
+  margin-right: 50px
+}
+.campgroundbtn{
+  height: 54px
+}
+.searchResult{
+  border: 1px solid black;
+  outline-style: double;
+  outline-color: rgb(10, 46, 10);
+  outline-width: medium;
 }
