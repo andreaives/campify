@@ -1,22 +1,7 @@
-function getUser() {
- $.get("/api/profile", function(data) {
-   console.log("Profile", data);
- //   user = data;
- //   if (!user || !user.length) {
- //     displayEmpty();
- //   }
- //   else {
- //     initializeRows();
- //   }
- });
-}
-getUser()
-
-
 function pinElement() {
   var products = document.querySelector('.campify-profile'),
     scroll = window.scrollY,
-    nav = document.querySelector('.side-nav'),
+    nav = document.querySelector('.navbar'),
     navTop = nav.offsetTop
     calender = document.querySelector('.calender'),
     offset = header.clientHeight,
