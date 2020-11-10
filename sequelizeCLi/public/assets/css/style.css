@@ -504,3 +504,23 @@ input[type=text], input[type=password]{
   margin-bottom: 15px;
   display: block;
 }
+.activityBtn{
+  width: 40%
+}
+.facilityBtn{
+  width: 40%
+}
+.pinBtn{
+  height: 54px;
+  align-self: baseline;
+  margin-right: 50px
+}
+.campgroundbtn{
+  height: 54px
+}
+.searchResult{
+  border: 1px solid black;
+  outline-style: double;
+  outline-color: rgb(10, 46, 10);
+  outline-width: medium;
+}
