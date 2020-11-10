@@ -1,3 +1,7 @@
+body{
+  background-color: #866C5B;
+  color: #EFCB68;
+}
 .hidden {
   display: none
 }
@@ -414,13 +418,19 @@ body {
 
 /* Navbar Styling */
 .navbar-custom {
-  background-color: #866C5B;
-  color: #EFCB68;
+  background-color: #EFCB68;
+  color: #866C5B;
 }
 header{
   position: fixed;
   top: 0%;
   width: 100%;
+}
+
+/* Review Styling */
+.review{
+  background-color: #866C5B;
+  color: #EFCB68;
 }
 
 /* Login + Signup Styling */
