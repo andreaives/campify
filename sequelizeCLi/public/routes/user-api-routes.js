@@ -5,7 +5,6 @@ var passport = require("../../config/passport")
 module.exports = function(app) {
   app.get("/api/profile", function(req, res) {
     db.User.findAll({
-      include: [db.Review]
     }).then(function(dbUser) {
       let data = dbUser[0].dataValues
       let arr = []
@@ -16,23 +15,46 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/profile/:id", function(req, res) {
-    db.User.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Review]
-    }).then(function(dbUser) {
-      let data = dbUser[0].User.dataValues
+  // app.get("/api/profile/:id", function(req, res) {
+  //   db.User.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.Review]
+  //   }).then(function(dbUser) {
+  //     let data = dbUser[0].User.dataValues
+  //     let arr = []
+  //     arr.push(data)
+  //     res.render("profile", { user: data});
+  //   });
+  // });
+  app.post("/api/pins", function(req, res){
+    db.Pin.create(req.body).then(function(dbPin){
+      res.render("profile")
+    })
+  });
+
+  app.get("/api/pins", function(req, res){
+    db.Pin.findAll(req.body).then(function(dbPin){
       let arr = []
-      arr.push(data)
-      res.render("profile", { user: data});
-    });
+      console.log(dbPin)
+
+      dbPin.forEach(function(data){
+
+        var pinData = data.dataValues
+        arr.push(pinData)
+
+      })
+
+
+      res.render("profile", {pin: arr})
+      console.log(arr)
+    })
   });
 
   app.post("/api/profile", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
+      res.render("profile", {user: dbUser})
     });
   });
 

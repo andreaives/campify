@@ -22,20 +22,38 @@ $(function() { // data from RIDB
           };
             $.ajax(recAreaSettings).done(function (response){
               var resultArr = response.RECDATA
+              
               console.log(resultArr)
               resultArr.forEach(function(data) {
+                var coordsArr = [];
                 var searchItem = {
                   name: data.RecAreaName,
                   // description: data.RecAreaDescription,
-                  lat: data.RecAreaLatitude,
-                  lon: data.RecAreaLongitude,
                   phone: data.RecAreaPhone,
                   email: data.RecAreaEmail,
                   reservable: data.reservable,
                   recAreaId: data.RecAreaID
                 }
-                searchArr.push(searchItem)
+                var coords = {
+                  lat: data.RecAreaLatitude,
+                  lon: data.RecAreaLongitude,
+                }
+                searchArr.push(searchItem);
+                coordsArr.push(coords);
+                
               })
+              function initMap(){
+                const latlon = { lat: -25.344, lng: 131.036 };
+                const map = new google.maps.Map(document.getElementById("map"), {
+                  center: {lat: 39.739235, lng: -104.990250}
+                })
+                const marker = new google.maps.Marker({
+                  position: latlon,
+                  map: map
+                })
+              }
+              initMap()
+
               for(i=0;i<searchArr.length;i++){
                 var resultDiv = $("<div>");
                 resultDiv.addClass("searchResult");
@@ -72,6 +90,7 @@ $(function() { // data from RIDB
                 .text("View Activities in this Rec Area");
                 activityBtn.attr('id', "activityBtn" + i);
                 resultDiv.append(activityBtn)
+                
                 
 
                 $("#searchResults").append(resultDiv);
@@ -120,6 +139,8 @@ $(function() { // data from RIDB
                   var resultDiv = $("<div>");
                   resultDiv.addClass("searchResult");
                   resultDiv.attr("facilityId", searchArr[i].facilityID)
+                  resultDiv.attr("facilityPhone", searchArr[i].phone)
+                  resultDiv.attr("facilityName", searchArr[i].name)
                   var nameResult = $("<div>");
                   nameResult.addClass("nameResult");
                   nameResult.text("Facility Name: " + searchArr[i].name);
@@ -152,6 +173,17 @@ $(function() { // data from RIDB
                   var pinListener = document.getElementById("Pincampground"+a)
                   $(pinListener).on("click", function(event){
                     console.log(event)
+                    pinFac(event)
+                    function pinFac (data) {
+                      var facilityPhone = data.target.parentElement.attributes[2].value;
+                      var facilityName = data.target.parentElement.attributes[3].value
+                      console.log(facilityPhone + facilityName)
+                      $.post("/api/pins", {
+                        name: facilityName,
+                        phone: facilityPhone,
+                      })
+                        
+                    }
                   })
                   var campgroundListn = document.getElementById('campgroundBtn' + a)
                   $(campgroundListn).on("click", function(event) {

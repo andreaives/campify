@@ -1,3 +1,11 @@
+#map {
+  height: auto;
+  /* The height is 400 pixels */
+  width: 70%;
+  /* The width is the width of the web page */
+}
+
+
 body{
   background-color: #866C5B;
   color: #EFCB68;

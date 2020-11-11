@@ -35,4 +35,4 @@ getUser()
 //          nav.style.top = end.style.top; 
 //       }
 //   }    
-document.addEventListener('scroll', pinElement)
+// document.addEventListener('scroll', pinElement)
