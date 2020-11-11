@@ -168,6 +168,7 @@ $(function() { // data from RIDB
                 resultDiv.append(pinButton)
                   $("#searchResults").append(resultDiv);
                 }
+                
                 for(a=0;a<50;a++){
                   var pinListener = document.getElementById("Pincampground"+a)
                   $(pinListener).on("click", function(event){
