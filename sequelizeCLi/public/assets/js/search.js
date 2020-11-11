@@ -10,7 +10,7 @@ $(function() { // data from RIDB
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          // https://cors-anywhere.herokuapp.com/
+          // https://cors-anywhere.herokuapp.com/ I had to use this to fix the fact that the api wasnt set up for nonCORS communication, forked repo and hosted on heroku under my own account to handle fewer requests
           const userLat = pos.lat
           const userLon = pos.lng
           let recAreaSettings = {
@@ -68,9 +68,11 @@ $(function() { // data from RIDB
                 // facilityBtn.attr('indx', indx);
                 var activityBtn = $("<button>")
                 .addClass("activityBtn")
+                activityBtn.addClass("tooltips")
                 .text("View Activities in this Rec Area");
                 activityBtn.attr('id', "activityBtn" + i);
                 resultDiv.append(activityBtn)
+                
 
                 $("#searchResults").append(resultDiv);
               }
@@ -227,7 +229,12 @@ $(function() { // data from RIDB
               })
                 var activityListn = document.getElementById('activityBtn' + a)
                 $(activityListn).on("click", function(event) {
+                  searchArr = []
+                 
+                  console.log(event)
                   var recareaID = event.target.parentElement.attributes[1].value
+                  var activityButton = event.target.attributes[1].value
+                  console.log(activityButton)
                   let activitySettings = {
                     async: true,
                     crossDomain: true,
@@ -236,9 +243,32 @@ $(function() { // data from RIDB
                     contentType: "application/json"
                   }
                   $.ajax(activitySettings).done(function(response){
+                    var arrayString = " "
                     var resultArr = response.RECDATA
-                    console.log(resultArr)
+                    console.log($(this))
+                    resultArr.forEach(function(data) {
+                      // activityArr = 
+                      //   {
+                      //     id: data.ActivityID,
+                      //     name: data.ActivityName
+                      //   }
+                      searchArr.push(data.ActivityName)
+                    })
+                    arrayString = searchArr.toString();
+                    $(this).attr("title", arrayString)
+                    new jBox('Tooltip', {
+                    attach: '.tooltips',
+                    position: {
+                      x: "right",
+                      y: "top"
+                    },
+                    maxWidth: 250,
+                    maxHeight: 1600,
+                    content: arrayString
+                    })
+                    
                   })
+                  
                 })
               }
             })
@@ -246,4 +276,5 @@ $(function() { // data from RIDB
       })
     }
   })
+
 })

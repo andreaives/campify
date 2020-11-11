@@ -1,22 +1,21 @@
+$(function() {
+  var calendarEl = document.getElementById('calendar');
 
-// next day function
-$('a.nextDay').click(function() { 
-  $('li.current').next().addClass('current').prev().removeClass('current');
-});
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
+    initialView: 'dayGridMonth',
+    initialDate: '2020-11-10',
+    headerToolbar: {
+      center: 'title',
+      right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+    editable: true,
+    dayMaxEvents: true, // when too many events in a day, show the popover
+    events: "https://fullcalendar.io/demo-events.json?overload-day",
+    eventColor: "#378006",
+    eventDisplay: "auto",
 
-// previous day
-  $('a.prevDay').click(function() { 
-  $('li.current').prev().addClass('current').next().removeClass('current');
-});
+  });
 
-// current day
-$('a.today').click(function(){
-  $('li.current').removeClass('current');
-  $('li.today').addClass('current');
-});
-
-// expand days
-$('a.expand').click(function(){
-  $(this).parent().toggleClass('open');
-  $(this).toggleClass('open');
+  calendar.render();
 });
