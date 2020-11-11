@@ -1,7 +1,4 @@
-# campify
-The best site for camping information
 
-  
   ![GitHub license](https://img.shields.io/badge/License-MIT-blue.svg)
   
   # Campify
