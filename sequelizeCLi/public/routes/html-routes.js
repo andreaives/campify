@@ -21,7 +21,8 @@ module.exports = function(app) {
   app.get("/profile/:id", function(req, res) {
     db.User.findAll({
     }).then(function(dbUser) {
-      let data = dbUser[0].dataValues
+      console.log(dbUser)
+      // let data = dbUser[0].dataValues
       let arr = []
       arr.push(data)
       console.log(data)
@@ -36,7 +37,7 @@ module.exports = function(app) {
     res.render("index")
   })
   
-  app.get("/", isAuthenticated, function(req, res) {
-    res.render("index");
-  });
+  // app.get("/", isAuthenticated, function(req, res) {
+  //   res.render("index");
+  // });
 }

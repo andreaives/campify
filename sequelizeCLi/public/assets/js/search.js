@@ -143,11 +143,16 @@ $(function() { // data from RIDB
                 var pinButton = $("<button>")
                 pinButton.addClass("pinBtn")
                 pinButton.text("PIN")
-                pinButton.attr("id", "campground" + i)
+                pinButton.attr("id", "Pincampground" + i)
                 resultDiv.append(pinButton)
                   $("#searchResults").append(resultDiv);
                 }
+                
                 for(a=0;a<50;a++){
+                  var pinListener = document.getElementById("Pincampground"+a)
+                  $(pinListener).on("click", function(event){
+                    console.log(event)
+                  })
                   var campgroundListn = document.getElementById('campgroundBtn' + a)
                   $(campgroundListn).on("click", function(event) {
                   event.preventDefault();
