@@ -321,16 +321,6 @@ body {
   background: #f7f6f3;
   font-family: sans-serif;
 }
-.calendar {
-  position: absolute;
-  width: 280px;
-  left: 50%;
-  top: 50%;
-  margin: -145px 0px 0px -140px;
-  background: #fff;
-  border-radius: 4px;
-  overflow: hidden;
-}
 .ui-datepicker-header {
   height: 50px;
   line-height: 50px;
@@ -539,4 +529,12 @@ input[type=text], input[type=password]{
 .jBox-content{
   color: black;
   
+}
+#calendar {
+  max-width: 1100px;
+  margin: 40px auto;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+  font-size: 24px;
 }

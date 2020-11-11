@@ -228,7 +228,7 @@ $(function() { // data from RIDB
                 $("#searchResults").empty();
               })
                 var activityListn = document.getElementById('activityBtn' + a)
-                $(activityListn).on("mouseover", function(event) {
+                $(activityListn).on("click", function(event) {
                   searchArr = []
                  
                   console.log(event)
