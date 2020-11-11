@@ -5,6 +5,9 @@
   /* The width is the width of the web page */
 }
 
+.pins{
+  float: right
+}
 
 body{
   background-color: #866C5B;

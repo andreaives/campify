@@ -6,7 +6,7 @@ $(function() {
     initialView: 'dayGridMonth',
     initialDate: '2020-11-10',
     headerToolbar: {
-      center: 'title',
+      center: "addEventButton",
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
     },
     customButtons: {
