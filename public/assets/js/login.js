@@ -35,7 +35,7 @@ function login() {
   // Getting references to our form and inputs
   var loginForm = $("form.login");
   var usernameInput = $("input#username-input")
-  var emailInput = $("input#email-input")
+  // var emailInput = $("input#email-input")
   var passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
@@ -45,20 +45,22 @@ function login() {
     var userData = {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim(),
-      email: emailInput.val().trim()
+      // email: emailInput.val().trim()
     };
     
 
-    if (!userData.username || !userData.password || !userData.email) {
+    if (!userData.username || !userData.password){
+      //  || !userData.email) {
       return;
     }
     console.log(userData)
 
     // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.username, userData.password, userData.email);
+    loginUser(userData.username, userData.password)
+      // , userData.email);
     usernameInput.val("");
     passwordInput.val("");
-    emailInput.val("")
+    // emailInput.val("")
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
@@ -80,7 +82,7 @@ function login() {
 function signUpUser(){
   var loginForm = $("form.login");
   var usernameInput = $("input#username-input")
-  var emailInput = $("input#email-input")
+  // var emailInput = $("input#email-input")
   var passwordInput = $("input#password-input");
 
   // When the form is submitted, we validate there's an email and password entered
@@ -90,20 +92,22 @@ function signUpUser(){
     var userData = {
       username: usernameInput.val().trim(),
       password: passwordInput.val().trim(),
-      email: emailInput.val().trim()
+      // email: emailInput.val().trim()
     };
     
 
-    if (!userData.username || !userData.password || !userData.email) {
+    if (!userData.username || !userData.password){
+      //  || !userData.email) {
       return;
     }
     console.log(userData)
 
     // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.username, userData.password, userData.email);
+    loginUser(userData.username, userData.password)
+      // , userData.email);
     usernameInput.val("");
     passwordInput.val("");
-    emailInput.val("")
+    // emailInput.val("")
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
@@ -113,7 +117,7 @@ function signUpUser(){
       password: password
     })
       .then(function() {
-        window.location.replace("/profile/:id");
+        window.location.replace("/api/pins");
         // If there's an error, log the error
       })
       .catch(function(err) {

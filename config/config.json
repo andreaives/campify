@@ -1,24 +1,13 @@
 {
-  "development": {
-    "username": "bhe197938dyq8z8m",
-    "password": "uzqlmku8r192mvr4",
-    "database": "pfca8f2uskc1ec4t",
-    "host": "fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "bhe197938dyq8z8m",
-    "password": "uzqlmku8r192mvr4",
-    "database": "pfca8f2uskc1ec4t",
-    "host": "fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "username": "bhe197938dyq8z8m",
-    "password": "uzqlmku8r192mvr4",
-    "database": "pfca8f2uskc1ec4t",
-    "host": "fnx6frzmhxw45qcb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "dialect": "mysql"
-  }
+    "development": {
+      "username": "root",
+      "password": "password",
+      "database": "campify",
+      "host": "127.0.0.1",
+      "dialect": "mysql"
+    },
+    "production": {
+      "use_env_variable": "JAWSDB_URL",
+      "dialect": "mysql"
+    }
 }
