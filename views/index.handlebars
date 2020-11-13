@@ -13,7 +13,13 @@
         <a class="nav-link log-out" href="/">Log Out</a>
       </li>
     </ul>
-
+    <div>
+      {{#each user}}
+      <h1>{{username}}</h1>
+      <div class="user">
+        {{/each}}
+      </div>
+    </div>
  </nav>
 <div>
     <form class="form-inline my-2 my-lg-0 search">
@@ -40,8 +46,6 @@
   ></iframe>
 
 
-
-  {{>search}}
   
 
 

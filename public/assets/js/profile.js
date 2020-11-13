@@ -1,5 +1,5 @@
 function getUser() {
- $.get("/api/profile", function(data) {
+ $.get("/api/pins", function(data) {
    console.log("Profile", data);
  //   user = data;
  //   if (!user || !user.length) {
